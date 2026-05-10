@@ -414,6 +414,13 @@ footer{padding:clamp(1.5rem,2.5vw,2.2rem) var(--side);background:var(--ink);bord
   .ld-r2{width:clamp(90px,34vw,120px);height:clamp(90px,34vw,120px);}
   .ld-r3{width:clamp(62px,24vw,85px);height:clamp(62px,24vw,85px);}
 
+  /* Hero text centering */
+  .hero-c{text-align:center;}
+  .hero-orn{justify-content:center;}
+  .hero-sub{max-width:100%;margin-left:auto;margin-right:auto;}
+  .hero-rule{justify-content:center;}
+  .hero-btns{justify-content:center;}
+
   /* Hero */
   .raven-wrap{width:100%;opacity:.2;}
   .hl-fade{background:linear-gradient(90deg,var(--ink) 5%,rgba(15,13,8,.9) 55%,rgba(15,13,8,.65) 100%);}
@@ -625,7 +632,7 @@ footer{padding:clamp(1.5rem,2.5vw,2.2rem) var(--side);background:var(--ink);bord
   </div>
   <div class="rv">
     <p class="cta-body">One conversation begins everything. Tell us the vision — we will return with a proposal that exceeds it. <strong>Every project is a collaboration between your ambition and our craft.</strong></p>
-    <a href="mailto:ravenmark.co@gmail.com" class="cta-email"> ravenmark.co@gmail.com </a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ravenmark.co@gmail.com" target="_blank" class="cta-email" id="cta-email-link"> ravenmark.co@gmail.com </a>
     <div><a href="#" class="btn-gold enquire-trigger">Send an Enquiry</a></div>
   </div>
 </section>
@@ -646,7 +653,7 @@ footer{padding:clamp(1.5rem,2.5vw,2.2rem) var(--side);background:var(--ink);bord
       <a href="https://wa.me/919686991943" target="_blank" class="btn-gold" style="display:flex; align-items:center; justify-content:center; gap:10px; border-radius:12px;">
         WhatsApp
       </a>
-      <a href="mailto:ravenmark.co@gmail.com" class="btn-out" style="display:flex; align-items:center; justify-content:center; gap:10px; border-radius:12px;">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ravenmark.co@gmail.com" target="_blank" class="btn-out" id="popup-email-link" style="display:flex; align-items:center; justify-content:center; gap:10px; border-radius:12px;">
          Email (Gmail)
       </a>
     </div>
@@ -665,6 +672,14 @@ if(!isTouch){
     dot.style.left=cx+'px';dot.style.top=cy+'px';
     cur.style.left=cx+'px';cur.style.top=cy+'px';
   });
+}
+
+// Switch email links to mailto on mobile/touch devices
+if(isTouch){
+  const ctaEmail = document.getElementById('cta-email-link');
+  const popupEmail = document.getElementById('popup-email-link');
+  if(ctaEmail) ctaEmail.href = 'mailto:ravenmark.co@gmail.com';
+  if(popupEmail) { popupEmail.href = 'mailto:ravenmark.co@gmail.com'; popupEmail.removeAttribute('target'); }
 }
 
 // HAMBURGER MENU
